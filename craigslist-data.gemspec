@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Craigslist::Data::VERSION
   spec.authors       = ["mark nery"]
   spec.email         = ["marknery@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{a gem to scrape data off craigslist}
+  spec.summary       = %q{a gem to scrape data off craigslist}
+  spec.homepage      = "https://github.com/mark-nery/craigslist-data"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
