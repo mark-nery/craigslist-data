@@ -1,6 +1,6 @@
 # Craigslist::Data
 
-TODO: Write a gem description
+Gem
 
 ## Installation
 
@@ -18,7 +18,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### search example
+
+   craigslist = CraigsList.new
+   craigslist.search(city: "denver" , query: "pics of your mom" , titles_only: true)
+
+#### returns
+
+     [{
+        data_id: "314159265359",
+        decsription: "pics of your mom at country buffet",
+        url: "http://denver.craigslist.org/42.html,
+        price: 5
+     }]      
 
 ## Contributing
 
