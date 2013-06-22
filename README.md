@@ -4,8 +4,7 @@ A gem to scrape craiglist data , use at own risk.
 
 ####Warning
 
-This gem does not work if hosted on heroku or ec2 , it appears craiglist blocks requests coming from them.
-[http://stackoverflow.com/questions/14328955/http-get-on-craigslist-blocked]
+This gem does not work if hosted on heroku or ec2 , it appears [craiglist blocks requests coming from them.](http://stackoverflow.com/questions/14328955/http-get-on-craigslist-blocked)
 
 ## Installation
 
@@ -26,16 +25,22 @@ Or install it yourself as:
 ### search example
     
     craigslist = CraigsList.new
-    craigslist.search(city: "denver" , query: "pics of your mom" , titles_only: true)
+    craigslist.search_boulder_for "vegan flip flops"
 
 #### returns
 
      [{
         data_id: "314159265359",
-        decsription: "pics of your mom at country buffet",
+        decsription: "vegan flip flops made out of tofu",
         url: "http://denver.craigslist.org/42.html,
         price: 5
      }]      
+
+### you can search most valid craigslist cities
+#### example
+    craigslist.search_dallas_for "a NoBama bumper sticker"
+
+    craigslist.search_lasvegas_for "gold chains and workout jumpsuit"
 
 ## Contributing
 
