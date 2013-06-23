@@ -41,6 +41,12 @@ Or install it yourself as:
         price: 5
      }]      
 
+### calculate average prices on postings
+#### example
+
+    craigslist = CraigsList.new
+    craigslist.search_miami_for "white aligator shoes".average_price #=> 200
+
 ### You can search most valid craigslist cities
 #### example
     craigslist.search_dallas_for "a NoBama bumper sticker"

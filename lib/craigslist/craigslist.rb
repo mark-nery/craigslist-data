@@ -36,6 +36,16 @@ class CraigsList
     search(params)
   end
 
+  Array.class_eval do
+    def average_price
+      return 0 if empty?
+      
+      self.reject! { |item| item[:price] == nil }
+
+      flat_map { |item| [item[:price]] }.map { |price| price.to_i }.reduce(:+) / self.size 
+    end
+  end
+  
   private
   
   def extract_city(method_name)
