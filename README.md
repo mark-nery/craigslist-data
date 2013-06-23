@@ -27,6 +27,10 @@ Or install it yourself as:
     craigslist = CraigsList.new
     craigslist.search_boulder_for "vegan flip flops"
 
+> defaults to searching the entire post
+> you can also search in just the titles
+
+  craigslist.search_titles_in_denver_for "vegan flip flops"
 #### returns
 
      [{
@@ -41,6 +45,7 @@ Or install it yourself as:
     craigslist.search_dallas_for "a NoBama bumper sticker"
 
     craigslist.search_lasvegas_for "gold chains and workout jumpsuit"
+
 
 ## Contributing
 

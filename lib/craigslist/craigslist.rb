@@ -42,12 +42,25 @@ class CraigsList
 
   #search_CITYNAME_for
   def method_missing(method,*args)
-    super unless Cities::CITIES.include? method.to_s.gsub("search_","").gsub("_for","")
-
-    search(city: method.to_s.gsub("search_","").gsub("_for","") ,query: args.first)
+    super unless Cities::CITIES.include? city ||= extract_city(method)
+    
+    params = { query: args.first , city: city}
+    params.merge!(title_only: true) if /titles/ =~ method
+      
+    search(params)
   end
 
   private
+
+  
+  def extract_city(method_name)
+    
+    if /titles/ =~ method_name
+      method_name.to_s.gsub("search_titles_in_","").gsub("_for","")
+    else
+      method_name.to_s.gsub("search_","").gsub("_for","")
+    end
+  end
   
   def extract_price(dollar_string)
     dollar_string[1..-1]

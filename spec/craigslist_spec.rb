@@ -82,5 +82,23 @@ describe CraigsList do
       craigslist.search_dallas_for("cowboy hats")
     end
   end
+
+  
+  describe "dynamic method search_titles_in_{cityname}_for" do
+    let(:craigslist) { CraigsList.new }
+    
+    it "calls search for a valid city" do
+      CraigsList::CITIES.each do |city|
+        craigslist.should_receive(:search).with(city: city , query: nil , title_only: true)
+        
+        craigslist.send("search_titles_in_#{city}_for")
+      end
+    end
+    
+    it "doesn't call search for an invalid city" do
+      expect { craigslist.search_titles_in_yourmamaville_for }.to raise_error(NoMethodError)
+    end
+
+  end
 end
 
