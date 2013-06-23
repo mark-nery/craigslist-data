@@ -29,7 +29,8 @@ Or install it yourself as:
 
 > defaults to searching the entire post
 > you can also search in just the titles
-`craigslist.search_titles_in_denver_for "vegan flip flops"
+
+`craigslist.search_titles_in_denver_for "vegan flip flops"`
 
 #### returns
 
