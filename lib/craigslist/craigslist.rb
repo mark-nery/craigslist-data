@@ -27,19 +27,6 @@ class CraigsList
     end
   end
   
-  def us_cities
-    doc = Nokogiri::HTML(open("http://www.craigslist.org/about/sites"))
-    
-    cities = []
-    doc.css('a').each do |link|
-      if /http:\/\/([a-z]*).craigslist.org/ =~ link["href"]
-        cities << link["href"]
-      end
-    end
-    cities
-  end
-
-  #search_CITYNAME_for
   def method_missing(method,*args)
     super unless Cities::CITIES.include? city ||= extract_city(method)
     
@@ -50,7 +37,6 @@ class CraigsList
   end
 
   private
-
   
   def extract_city(method_name)
     
