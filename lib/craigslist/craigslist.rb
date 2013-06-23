@@ -16,16 +16,15 @@ class CraigsList
     uri = "http://#{options[:city]}.craigslist.org/search/sss?#{to_query(options)}"
     
     doc = Nokogiri::HTML(open(uri))
-    items = []
-    doc.css('p.row').each do |link|
-      items << {
+
+    doc.css('p.row').flat_map do |link|
+      [
         data_id: link["data-pid"] ,
         description:  link.css("a").text,
         url: "http://#{options[:city]}.craigslist.org#{link.css("a")[0]["href"]}",
         price: extract_price(link.css("span.price").text)
-      }
+      ]
     end
-    items
   end
   
   def us_cities
